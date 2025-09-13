@@ -1402,3 +1402,47 @@ i.fa, i.fas, i.far, i.fab, i.fal, i.fad,
 .window-app .window-content textarea {
   font-family: var(--cbr-font-ui);
 }
+
+/* === TYPOGRAPHY NORMALIZER — put this at the VERY END ==================== */
+/* Force Barlow on all text inside sheets; do NOT override icon fonts */
+.window-app .window-content *:not(i):not(.fa):not(.fas):not(.far):not(.fab)
+:not([class*=" fa-"]):not([class^="fa-"]) {
+  font-family: var(--cbr-font-ui) !important;
+}
+
+/* Use Orbitron for headings/titles across the sheet */
+.window-app .window-header .window-title,
+.window-app .window-content h1,
+.window-app .window-content h2,
+.window-app .window-content h3,
+.window-app .window-content .section-title,
+.window-app .window-content .title,
+.window-app .window-content .runnerCard h3,
+.window-app .window-content .approach h3,
+.window-app .window-content section.skills h3,
+.window-app .window-content .augmentations h3,
+.window-app .window-content .gear > h3,
+.window-app .window-content .harm h3 {
+  font-family: var(--cbr-font-display) !important;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+}
+
+/* Pseudo-labels (vertical “APPROACH”, “SKILLS”, “HARM”) */
+.window-app .window-content .approach::before,
+.window-app .window-content section.skills::before,
+.window-app .window-content .harm::before {
+  font-family: var(--cbr-font-display) !important;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+}
+
+/* Chat headings should also use Orbitron (body font already set earlier) */
+.chat-message .message-content h1,
+.chat-message .message-content h2,
+.chat-message .message-content h3 {
+  font-family: var(--cbr-font-display) !important;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+}
+/* ======================================================================== */
